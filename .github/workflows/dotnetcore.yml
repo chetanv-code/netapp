@@ -26,5 +26,5 @@ jobs:
     - uses: azure/webapps-deploy@v1
       with:
         app-name: netapp001
-        publish-profile: ${{ secrets.<publish-profile> }}
+        publish-profile: ${{ secrets.az_login }}
         package: './myapp'
