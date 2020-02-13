@@ -15,3 +15,16 @@ jobs:
         dotnet-version: 3.1.101
     - name: Build with dotnet
       run: dotnet build --configuration Release
+      
+    - name: Build with dotnet
+      run: dotnet test
+      
+    - name: dotnet publish
+      run: |
+        dotnet publish -c Release -o myapp
+
+    - uses: azure/webapps-deploy@v1
+      with:
+        app-name: netapp001
+        publish-profile: ${{ secrets.<publish-profile> }}
+        package: './myapp'
